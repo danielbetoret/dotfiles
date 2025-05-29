@@ -2,11 +2,17 @@
     "layer": "top", // Waybar at top layer
     "position": "top", // Waybar at the bottom of your screen
     "height": 24, // Waybar height
-    "spacing": 8,
 
-    "modules-left": ["hyprland/workspaces"],
+    "modules-left": ["custom/launcher", "hyprland/workspaces"],
     "modules-center": ["hyprland/window"],
     "modules-right": ["custom/spotify", "pulseaudio", "network", "battery", "tray", "clock"],
+
+    
+    "custom/launcher": {
+      "format": "",
+      "on-click": "rofi -show drun -show-icons -sort",
+      "tooltip-format": "Launch your favorite apps",
+    },
 
     "hyprland/workspaces": {
         "on-click": "hyprctl dispatch workspace {id}",
@@ -24,6 +30,7 @@
             "class<.*[dD]ocker.*>": "",
             "class<.*bitwarden.*>": "",
             "class<Spotify>": "",
+            "class<org.gnome.Nautilus>": "",
 	    },
     },
 
@@ -37,6 +44,7 @@
             ".*[dD]ocker.*": "  Docker",
             ".*[bB]itwarden.*": "  Bitwarden",
             "Spotify (.*)": "  $1",
+            "org.gnome.Nautilus (.*)": "  $1",
         },
         "max-length": 80,
     },
@@ -70,7 +78,8 @@
         // "interface": "wlp2s0", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ",
         "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-        "format-disconnected": "Disconnected ⚠"
+        "format-disconnected": "Disconnected ⚠",
+        "on-click": "zsh -c \"nmtui\" && disown",
     },
     "pulseaudio": {
         //"scroll-step": 1,
