@@ -6,6 +6,7 @@ font-style = SemiBold
 font-size = 12.0
 font-synthetic-style = bold
 custom-shader = ./shaders/cursor_smear.glsl
+mouse-hide-while-typing = true
 
 palette = 0=#1d1f21
 palette = 8=#666666
