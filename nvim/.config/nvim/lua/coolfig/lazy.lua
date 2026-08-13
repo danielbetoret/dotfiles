@@ -36,8 +36,10 @@ return require('lazy').setup({
   { 'tribela/transparent.nvim' },
 
   -- treesitter for color hinting
-  { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate' },
-  { 'nvim-treesitter/playground' },
+  {
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
+  },
 
   -- harpoon for navigation
   { 'theprimeagen/harpoon' },
@@ -91,6 +93,8 @@ return require('lazy').setup({
       vim.g.Tex_BibtexFlavor = 'biblatex'
       vim.g.Tex_MultipleCompileFormats = 'pdf,bib,pdf'
       vim.g.vimtex_compiler_latexmk = {
+        aux_dir = 'aux',
+        out_dir = 'out',
         options = {
           "-pdf",
           "-verbose",
@@ -101,6 +105,12 @@ return require('lazy').setup({
       }
       vim.g.vimtex_compiler_latexmk_engines = {
         ["_"] = "-pdflatex",
+      }
+      vim.g.vimtex_complete_ref = {
+        -- Add your custom macro names to the completion regex pattern
+        custom_patterns = {
+          [[\\myref\*\{[^}]*$]],
+        },
       }
       end
     },
