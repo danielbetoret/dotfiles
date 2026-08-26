@@ -6,7 +6,7 @@
 
     "modules-left": ["custom/launcher", "hyprland/workspaces"],
     // "modules-center": ["hyprland/window"],
-    "modules-right": ["custom/spotify", "pulseaudio", "network", "battery", "tray", "clock"],
+    "modules-right": ["custom/spotify", "group/volume", "network", "battery", "tray", "clock"],
 
     
     "custom/launcher": {
@@ -46,6 +46,8 @@
             "class<.*code-oss.*>": "",
             "class<org.pwmt.zathura>": "",
             "class<beekeeper-studio>": "",
+            "class<anydesk>": "󰔀",
+            "class<org.mozilla.Thunderbird>": "",
 	    },
     },
 
@@ -98,6 +100,14 @@
         "format-disconnected": "Disconnected ⚠",
         "on-click": "ghostty -e nmtui",
     },
+    "group/volume": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 400,
+            "transition-left-to-right": true,
+        },
+        "modules": [ "pulseaudio", "pulseaudio/slider" ],
+    },
     "pulseaudio": {
         //"scroll-step": 1,
         "format": "{volume}% {icon}",
@@ -118,6 +128,11 @@
 		"menu-actions": {
             "output": "~/.config/hypr/scripts/select_audio_output.sh"
 		},
+    },
+    "pulseaudio/slider": {
+        "min": 0,
+        "max": 100,
+        "orientation": "horizontal",
     },
     "custom/spotify": {
         "format": " {}",

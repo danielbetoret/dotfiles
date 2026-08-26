@@ -12,6 +12,7 @@ window#waybar {
 
 #network,
 #pulseaudio,
+#pulseaudio-slider,
 #battery,
 #tray,
 #clock,
@@ -103,4 +104,27 @@ window#waybar {
 
 #custom-spotify {
     color: rgb(102, 220, 105);
+}
+
+#pulseaudio-slider slider {
+    min-height: 0px;
+    min-width: 0px;
+    opacity: 0;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+}
+
+#pulseaudio-slider trough {
+    min-height: 10px;
+    min-width: 100px;
+    border-radius: 5px;
+    background: transparent;
+}
+
+#pulseaudio-slider highlight {
+    padding: 1px;
+    min-height: 10px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 100);
 }
